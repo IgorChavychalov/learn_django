@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {{ page_title }} </title>
+</head>
+<body>
+    <a href="{% url 'main:index' %}" style="color: red; font-size: 1em"> НА ГЛАВНУЮ</a>
+
+    <form action="/post/search/" method="post">
+        {% csrf_token %}
+        <input type="text" name="text">
+        <input type="submit" value="Search">
+    </form>
+    <div>
+        {{ message }}
+    </div>
+</body>
+</html>

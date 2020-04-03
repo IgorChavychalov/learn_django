@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {{ page_title }} </title>
+</head>
+<body>
+    <ul>
+        <li style="margin-bottom: 10px">
+          <a href="{% url 'get:index' %}" style="color: red; font-size: 2em"> GET-ЗАПРОСЫ</a>
+        </li>
+        <li>
+           <a href="{% url 'post:index' %}" style="color: #2036ff; font-size: 2em"> POST-ЗАПРОСЫ</a>
+        </li>
+    </ul>
+</body>
+</html>

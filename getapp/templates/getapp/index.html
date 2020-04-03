@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {{ page_title }} </title>
+</head>
+<body>
+    <a href="{% url 'main:index' %}" style="color: red; font-size: 1em"> НА ГЛАВНУЮ</a>
+
+    <p>Простой get-запрос</p>
+    <form action="/get/search/" method="get">
+        <input type="text" name="text">
+        <input type="submit" value="Search">
+    </form>
+    <div>
+        {{ message }}
+    </div>
+
+    <p>Ajax get-запрос</p>
+    <input type="text" id="in">
+    <button  id="btn" data-id="1">Click</button>
+    <div id="out"></div>
+
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script type="text/javascript">
+        $('#btn').click(function(){
+            let pk = $(this).attr("data-id");
+            let context = document.getElementById("in").value;
+            console.log(context);
+            $.ajax({
+                type:"GET",
+                url: "/get/btn-click/" + pk + '/',
+                data:{
+                         massage: context
+                },
+                success: function( data )
+                {
+                    $('#out').text(context);
+                }
+            })
+        });
+    </script>
+
+
+</body>
+</html>
